@@ -2,9 +2,11 @@ pipeline {
     agent any
 
     stages {
+
         stage('Checkout') {
             steps {
-                git 'https://github.com/aadilalisaiyed/jenkins-node-app.git'
+                git branch: 'main',
+                    url: 'https://github.com/aadilalisaiyed/jenkins-node-app.git'
             }
         }
 
@@ -19,5 +21,6 @@ pipeline {
                 sh 'npm test'
             }
         }
+
     }
 }
